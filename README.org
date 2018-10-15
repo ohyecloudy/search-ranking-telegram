@@ -6,7 +6,13 @@
 
 연습으로 만든 네이버 랭킹 알림 텔레그램 봇
 
-[[http://chromedriver.chromium.org/downloads][chrome driver]] 설치 후
+[[http://chromedriver.chromium.org/downloads][chrome driver]] 설치
+
+#+BEGIN_EXAMPLE
+  config :nadia, token: "TELEGRAM_BOT_TOKEN"
+#+END_EXAMPLE
+
+config.exs 파일에 텔레그램 봇 토큰 추가
 
 #+BEGIN_EXAMPLE
   $ mix do deps.get, run --no-halt

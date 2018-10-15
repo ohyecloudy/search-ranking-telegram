@@ -2,6 +2,7 @@ defmodule SearchRankingTelegram.Scraper do
   use GenServer
   use Hound.Helpers
   require Logger
+  alias SearchRankingTelegram.Telegram
 
   @interval_ms 1000 * 60
 
@@ -15,7 +16,8 @@ defmodule SearchRankingTelegram.Scraper do
     {:ok, _} = Application.ensure_all_started(:hound)
     Hound.start_session()
 
-    scraping()
+    ret = scraping()
+    Telegram.broadcast("#{inspect(ret)}")
     schedule_work()
 
     {:ok, %{}}
@@ -23,7 +25,8 @@ defmodule SearchRankingTelegram.Scraper do
 
   @impl true
   def handle_info(:scraping, state) do
-    scraping()
+    ret = scraping()
+    Telegram.broadcast("#{inspect(ret)}")
     schedule_work()
 
     {:noreply, state}
@@ -38,14 +41,11 @@ defmodule SearchRankingTelegram.Scraper do
 
     navigate_to("https://www.naver.com/")
 
-    ranking =
-      find_all_elements(:class, "ah_item")
-      |> Enum.filter(fn e -> attribute_value(e, "data-order") end)
-      |> Enum.map(fn e ->
-        {find_within_element(e, :class, "ah_r") |> inner_text(),
-         find_within_element(e, :class, "ah_k") |> inner_text()}
-      end)
-
-    Logger.info("#{inspect(ranking)}")
+    find_all_elements(:class, "ah_item")
+    |> Enum.filter(fn e -> attribute_value(e, "data-order") end)
+    |> Enum.map(fn e ->
+      {find_within_element(e, :class, "ah_r") |> inner_text(),
+       find_within_element(e, :class, "ah_k") |> inner_text()}
+    end)
   end
 end

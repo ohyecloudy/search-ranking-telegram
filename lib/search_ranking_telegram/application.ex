@@ -10,6 +10,7 @@ defmodule SearchRankingTelegram.Application do
     children = [
       # Starts a worker by calling: SearchRankingTelegram.Worker.start_link(arg)
       # {SearchRankingTelegram.Worker, arg},
+      {SearchRankingTelegram.Telegram, :ok},
       {SearchRankingTelegram.Scraper, :ok}
     ]
 
