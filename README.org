@@ -1,0 +1,13 @@
+# -*- mode: org -*-
+# -*- coding: utf-8 -*-
+#+TITLE: search ranking telegram bot
+#+AUTHOR: Jongbin Oh
+#+EMAIL: ohyecloudy@gmail.com
+
+연습으로 만든 네이버 랭킹 알림 텔레그램 봇
+
+[[http://chromedriver.chromium.org/downloads][chrome driver]] 설치 후
+
+#+BEGIN_EXAMPLE
+  $ mix do deps.get, run --no-halt
+#+END_EXAMPLE
