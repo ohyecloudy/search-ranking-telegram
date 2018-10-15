@@ -30,3 +30,5 @@ use Mix.Config
 #     import_config "#{Mix.env()}.exs"
 
 config :hound, driver: "chrome_driver", browser: "chrome_headless"
+
+config :nadia, token: System.get_env("TELEGRAM_TOKEN")

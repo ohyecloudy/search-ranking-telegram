@@ -9,11 +9,11 @@
 [[http://chromedriver.chromium.org/downloads][chrome driver]] 설치
 
 #+BEGIN_EXAMPLE
-  config :nadia, token: "TELEGRAM_BOT_TOKEN"
+  $ mix do deps.get
 #+END_EXAMPLE
-
-config.exs 파일에 텔레그램 봇 토큰 추가
 
 #+BEGIN_EXAMPLE
-  $ mix do deps.get, run --no-halt
+  TELEGRAM_TOKEN=xxxxxxxxx:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx mix run --no-halt
 #+END_EXAMPLE
+
+환경 변수로 텔레그램 토큰을 선언하고 실행
