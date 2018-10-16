@@ -32,3 +32,5 @@ use Mix.Config
 config :hound, driver: "chrome_driver", browser: "chrome_headless"
 
 config :nadia, token: System.get_env("TELEGRAM_TOKEN")
+
+config :search_ranking_telegram, chrome_driver_path: System.get_env("CHROME_DRIVER_PATH")

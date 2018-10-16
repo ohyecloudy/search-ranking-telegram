@@ -13,6 +13,11 @@ defmodule SearchRankingTelegram.Scraper do
 
   @impl true
   def init(:ok) do
+    Task.start(fn ->
+      # TODO[ohyecloudy]: chrome driver 프로세스 수명도 같이 제어해야 한다
+      System.cmd(Application.get_env(:search_ranking_telegram, :chrome_driver_path), [])
+    end)
+
     {:ok, _} = Application.ensure_all_started(:hound)
     Hound.start_session()
 

@@ -13,7 +13,9 @@
 #+END_EXAMPLE
 
 #+BEGIN_EXAMPLE
-  TELEGRAM_TOKEN=xxxxxxxxx:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx mix run --no-halt
+  $ export TELEGRAM_TOKEN=xxxxxxxxx:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  $ export CHROME_DRIVER_PATH=chromedriver
+  $ mix run --no-halt
 #+END_EXAMPLE
 
-환경 변수로 텔레그램 토큰을 선언하고 실행
+환경 변수로 텔레그램 토큰과 chrome driver 경로를 정의하고 실행
