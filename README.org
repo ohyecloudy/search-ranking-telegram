@@ -19,3 +19,5 @@
 #+END_EXAMPLE
 
 환경 변수로 텔레그램 토큰과 chrome driver 경로를 정의하고 실행
+
+블로그 포스트 - [[http://ohyecloudy.com/pnotes/archives/naver-search-ranking-notification-telegram-bot/]]
